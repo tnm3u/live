@@ -1,9 +1,12 @@
 #EXTM3U
 #EXT-X-VERSION:3
-#EXT-X-TARGETDURATION:10
+#EXT-X-TARGETDURATION:400
 #EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:10.000000,
-sna.ts
-#EXTINF:10.000000,
-sna1.ts
+
+#EXTINF:278,Neelothi
+https://drive.google.com/uc?export=download&id=1lR7_G9ilWRN_DTb2TeZE-Ztx9fdXVU4J
+
+#EXTINF:383,Theekoluthi
+https://drive.google.com/uc?export=download&id=1l01KxMr4i-IMJayo-BoB5QxkyewA8Jzb
+
 #EXT-X-ENDLIST
