@@ -1,4 +1,3 @@
-
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-TARGETDURATION:10
@@ -7,4 +6,3 @@
 stream.ts
 #EXTINF:10.000000,
 stream1.ts
-#EXT-X-ENDLIST
