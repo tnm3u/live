@@ -1,1 +1,58 @@
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Stream Preview</title>
+    <style>
+      :root { color-scheme: dark; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #0b1020;
+        color: #e6e6e6;
+        font-family: Arial, sans-serif;
+      }
+      .wrap {
+        width: min(960px, 96vw);
+      }
+      h1 { margin: 0 0 12px; font-size: 1.1rem; }
+      video {
+        width: 100%;
+        border-radius: 12px;
+        background: #000;
+      }
+      p { opacity: 0.8; font-size: 0.9rem; }
+      code { background: #121a33; padding: 2px 6px; border-radius: 6px; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Live Stream Preview</h1>
+      <video id="video" controls autoplay muted playsinline></video>
+      <p>Source: <code>../index.m3u8</code></p>
+    </div>
+
+    <script>
+      const video = document.getElementById('video');
+      const src = '../index.m3u8';
+
+      if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = src;
+      } else if (window.Hls && Hls.isSupported()) {
+        const hls = new Hls({
+          liveDurationInfinity: true,
+          maxLiveSyncPlaybackRate: 1.2,
+        });
+        hls.loadSource(src);
+        hls.attachMedia(video);
+      } else {
+        video.insertAdjacentHTML('afterend', '<p>Your browser does not support HLS playback.</p>');
+      }
+    </script>
+  </body>
+</html>
